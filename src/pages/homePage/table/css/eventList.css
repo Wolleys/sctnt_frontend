@@ -1,0 +1,13 @@
+.event-list-container {
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.event-list-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.event-item {
+    margin-bottom: 0.5rem;
+}
