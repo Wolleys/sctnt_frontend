@@ -1,57 +1,64 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
+import useForm from "../../../hooks/useForm";
+import TextField from "../../../components/form/textField";
 
-const SupplyChainItemForm: FC = () => {
-    const [formData, setFormData] = useState({
-        id: "",
+const AddItem: FC = () => {
+    const initialValues = {
         name: "",
         price: "",
         color: "",
         location: "",
         owner: "",
-    });
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission
+    const [formValues, { handleChange, handleSubmit }] = useForm(initialValues);
+
+    const addItem = async () => {
+        try {
+            console.log(formValues);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
     };
 
     return (
         <div>
-            <h2>Create a New Supply Chain Item</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    ID:
-                    <input type="text" name="id" onChange={handleChange} />
-                </label>
-                <label>
-                    Name:
-                    <input type="text" name="name" onChange={handleChange} />
-                </label>
-                <label>
-                    Price:
-                    <input type="text" name="price" onChange={handleChange} />
-                </label>
-                <label>
-                    Color:
-                    <input type="text" name="color" onChange={handleChange} />
-                </label>
-                <label>
-                    Location:
-                    <input type="text" name="location" onChange={handleChange} />
-                </label>
-                <label>
-                    Owner:
-                    <input type="text" name="owner" onChange={handleChange} />
-                </label>
+            <h2>Create a new item</h2>
+            <form onSubmit={handleSubmit(addItem)} autoComplete="off">
+                <TextField
+                    label="Name"
+                    name="name"
+                    value={formValues.name}
+                    onChange={handleChange}
+                />
+                <TextField
+                    label="Price"
+                    name="price"
+                    value={formValues.price}
+                    onChange={handleChange}
+                />
+                <TextField
+                    label="Color"
+                    name="color"
+                    value={formValues.color}
+                    onChange={handleChange}
+                />
+                <TextField
+                    label="Location"
+                    name="location"
+                    value={formValues.location}
+                    onChange={handleChange}
+                />
+                <TextField
+                    label="Owner"
+                    name="owner"
+                    value={formValues.owner}
+                    onChange={handleChange}
+                />
                 <button type="submit">Create</button>
             </form>
         </div>
     );
 };
 
-export default SupplyChainItemForm;
+export default AddItem;
