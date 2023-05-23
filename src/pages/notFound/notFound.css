@@ -1,0 +1,15 @@
+.go-back {
+    padding: 8px;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.go-back:hover {
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--white);
+}

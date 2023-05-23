@@ -4,6 +4,7 @@ import Layout from "../components/ui/layout";
 import HomeRoute from "./home";
 import ItemRoutes from "./item";
 import EventsRoutes from "./event";
+import NotFoundRoute from "./notFound";
 
 const AppRoutes: FC = () => {
   return (
@@ -12,6 +13,9 @@ const AppRoutes: FC = () => {
         <Route path="/*" element={<HomeRoute />} />
         <Route path="items/*" element={<ItemRoutes />} />
         <Route path="events/*" element={<EventsRoutes />} />
+        
+        {/* Catch all undefined routes */}
+        <Route path="*" element={<NotFoundRoute />} />
       </Route>
     </Routes>
   );

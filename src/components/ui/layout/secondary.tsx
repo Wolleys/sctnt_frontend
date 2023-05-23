@@ -1,11 +1,13 @@
 import { FC } from "react";
+import Header from "../header";
 import { Outlet } from "react-router-dom";
 
 const SecondaryLayout: FC = () => {
     return (
-        <section>
+        <>
+            <Header />
             <Outlet />
-        </section>
+        </>
     );
 };
 
