@@ -62,3 +62,32 @@ ul {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+.center h2 {
+    text-align: left;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-input-field-border);
+}
+
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+/* Responsiveness */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -3,13 +3,8 @@
 }
 
 .input-label {
+    float: left;
     display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.input-field {
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
+    font-weight: normal;
+    margin-bottom: 0rem;
 }

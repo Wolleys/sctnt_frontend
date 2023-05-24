@@ -6,6 +6,7 @@ const SecondaryLayout: FC = () => {
     return (
         <>
             <Header />
+            <section style={{ paddingTop: "50px" }} />
             <Outlet />
         </>
     );

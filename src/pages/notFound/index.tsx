@@ -1,6 +1,6 @@
 import { FC } from "react";
-import "./notFound.css"
 import { useNavigate } from "react-router-dom";
+import BackBtn from "../../components/form/button/backBtn";
 
 const NotFound: FC = () => {
     const navigate = useNavigate();
@@ -13,9 +13,8 @@ const NotFound: FC = () => {
                 The page you are looking for does not exist. <br /> How you got here is
                 still a mystery.
             </p>
-            <div>
-                <button className="go-back" onClick={goBack}>Go Back</button>
-            </div>
+            <br />
+            <BackBtn onClick={goBack}>Go Back</BackBtn>
         </section>
     );
 };
