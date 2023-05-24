@@ -4,10 +4,12 @@ import AddBtn from "../form/button/addBtn";
 import EditBtn from "../form/button/editBtn";
 import DeleteBtn from "../form/button/delBtn";
 import { useNavigate } from "react-router-dom";
+import { useInterfacesContext } from "../../hooks/useInterface";
 
 const Table: FC = () => {
     const navigate = useNavigate();
-    
+    const { items } = useInterfacesContext();
+
     //Links
     const handleAdd = () => navigate("/items/add-item");
     const handleEdit = () => navigate("/items/edit-item");
@@ -23,35 +25,32 @@ const Table: FC = () => {
                 </caption>
                 <thead>
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Color</th>
+                        <th>Location</th>
+                        <th>Owner</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td>
-                            <span>
-                                <EditBtn onClick={handleEdit}>Edit</EditBtn>
-                                <DeleteBtn>Delete</DeleteBtn>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Berglunds snabbköp</td>
-                        <td>Christina Berglund</td>
-                        <td>Sweden</td>
-                        <td>
-                            <span>
-                                <EditBtn onClick={handleEdit}>Edit</EditBtn>
-                                <DeleteBtn>Delete</DeleteBtn>
-                            </span>
-                        </td>
-                    </tr>
+                    {items?.map((item) => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            <td>{item.color}</td>
+                            <td>{item.location}</td>
+                            <td>{item.owner}</td>
+                            <td>
+                                <span>
+                                    <EditBtn onClick={handleEdit}>Edit</EditBtn>
+                                    <DeleteBtn>Delete</DeleteBtn>
+                                </span>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </section>

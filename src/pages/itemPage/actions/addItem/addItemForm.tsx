@@ -3,24 +3,32 @@ import { useNavigate } from "react-router-dom";
 import useForm from "../../../../hooks/useForm";
 import TextField from "../../../../components/form/textField";
 import BackBtn from "../../../../components/form/button/backBtn";
+import { validateItem } from "../../../../validation/validateItem";
 import SubmitBtn from "../../../../components/form/button/submitBtn";
+import { useInterfacesContext } from "../../../../hooks/useInterface";
 
 const AddItemForm: FC = () => {
+    const { item } = useInterfacesContext();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
 
     const initialValues = {
-        name: "",
-        price: "",
-        color: "",
-        location: "",
-        owner: "",
+        id: item.id || "",
+        name: item.name || "",
+        price: item.price || "",
+        color: item.color || "",
+        location: item.location || "",
+        owner: item.owner || "",
     };
 
-    const [formValues, { handleChange, handleSubmit }] = useForm(initialValues);
+    const [formValues, { handleChange, handleSubmit }, formErrors] = useForm(
+        initialValues,
+        validateItem
+    );
 
     const addItemForm = async () => {
         try {
+            if (!formValues.name) return;
             console.log(formValues);
         } catch (error) {
             console.error("Error submitting form:", error);
@@ -35,32 +43,39 @@ const AddItemForm: FC = () => {
                     <TextField
                         label="Name"
                         name="name"
-                        value={formValues.name}
                         onChange={handleChange}
+                        value={formValues.name}
+                        error={formErrors.name}
                     />
+
                     <TextField
                         label="Price"
                         name="price"
-                        value={formValues.price}
+                        type="number"
                         onChange={handleChange}
+                        value={formValues.price}
+                        error={formErrors.price}
                     />
                     <TextField
                         label="Color"
                         name="color"
-                        value={formValues.color}
                         onChange={handleChange}
+                        value={formValues.color}
+                        error={formErrors.color}
                     />
                     <TextField
                         label="Location"
                         name="location"
-                        value={formValues.location}
                         onChange={handleChange}
+                        value={formValues.location}
+                        error={formErrors.location}
                     />
                     <TextField
                         label="Owner"
                         name="owner"
-                        value={formValues.owner}
                         onChange={handleChange}
+                        value={formValues.owner}
+                        error={formErrors.owner}
                     />
                 </div>
                 <section>

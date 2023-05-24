@@ -5,6 +5,7 @@ interface InputProps {
     label: string;
     name: string;
     type?: string;
+    error?: string;
     value: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -14,6 +15,7 @@ const TextField: FC<InputProps> = ({
     name,
     type = "text",
     value,
+    error = "",
     onChange,
 }) => {
     return (
@@ -27,8 +29,9 @@ const TextField: FC<InputProps> = ({
                 id={name}
                 value={value}
                 onChange={onChange}
-                className="input-field"
+                className={`${error ? "input-field-error" : "input-field"}`}
             />
+            <span className="input-error-text">{error}</span>
         </div>
     );
 };

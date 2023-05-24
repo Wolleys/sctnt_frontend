@@ -4,3 +4,4 @@ export interface ButtonInterface {
     children: ReactNode;
     onClick?(): void;
 }
+

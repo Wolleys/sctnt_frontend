@@ -8,3 +8,9 @@
     font-weight: normal;
     margin-bottom: 0rem;
 }
+
+.input-error-text {
+    float: left;
+    color: red;
+    font-size: 12px;
+}
