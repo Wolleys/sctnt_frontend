@@ -1,10 +1,13 @@
 import { FC } from "react";
+import Table from "../../../components/table";
+import SearchBox from "../../../components/form/searchBox";
 
 const ItemsList: FC = () => {
     return (
-        <div>
-            <h2>Items List</h2>
-        </div>
+        <>
+            <SearchBox />
+            <Table />
+        </>
     );
 };
 

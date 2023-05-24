@@ -1,10 +1,30 @@
 :root {
+    /* Common variables */
     --white: #f9f9f9;
     --black: #36383f;
     --grey: #85888c;
+
+    /* Header variables */
     --color-header-bg: #24292f;
     --color-header-logo: #ffffff;
     --color-header-text: #ffffffb3;
+
+    /* Table variables */
+    --color-table-bg: #f6f8fa;
+    --color-table-text: #656d76;
+    --color-table-border: #d0d7de;
+    --color-table-caption-th: #1f2328;
+
+    /* Input variables*/
+    --color-input-field-text: #656d76;
+    --color-input-field-border: #d0d7de;
+
+    /* Button variables */
+    --color-button-bg: #f6f8fa;
+    --color-button-text: #ffffff;
+    --color-button-border: #d0d7de;
+    --color-button-bg-hover: #f9f9f9;
+    --color-button-default-text: #24292f;
 }
 
 /* Reset */
@@ -12,15 +32,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* button */
-button {
-    border: none;
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
 }
 
 body {

@@ -1,0 +1,38 @@
+button {
+    font-size: 12px;
+    cursor: pointer;
+    transition: 80ms;
+    line-height: 20px;
+    padding: 5px 16px;
+    border-radius: 3px;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: var(--color-button-default-text);
+    background-color: var(--color-button-bg);
+    border: 1px solid var(--color-button-border);
+}
+
+.add-btn{
+    margin-bottom: 8px;
+}
+
+.edit-btn {
+    margin: 0 5px;
+    background-color: #ffffff;
+}
+
+.edit-btn:hover {
+    background-color: #3b71ca;
+    color: var(--color-button-text);
+    border: 1px solid var(--color-button-bg-hover);
+}
+
+.del-btn {
+    background-color: #ffffff;
+}
+
+.del-btn:hover {
+    background-color: #a40e26;
+    color: var(--color-button-text);
+    border: 1px solid var(--color-button-bg-hover);
+}
