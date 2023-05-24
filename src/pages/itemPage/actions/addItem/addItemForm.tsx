@@ -28,7 +28,6 @@ const AddItemForm: FC = () => {
 
     const addItemForm = async () => {
         try {
-            if (!formValues.name) return;
             console.log(formValues);
         } catch (error) {
             console.error("Error submitting form:", error);
@@ -47,7 +46,6 @@ const AddItemForm: FC = () => {
                         value={formValues.name}
                         error={formErrors.name}
                     />
-
                     <TextField
                         label="Price"
                         name="price"

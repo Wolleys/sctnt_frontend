@@ -2,33 +2,25 @@ import { FC, ChangeEvent } from "react";
 import "./textField.css";
 
 interface InputProps {
-    label: string;
+    label?: string;
     name: string;
     type?: string;
     error?: string;
     value: string;
+    placeholder?: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextField: FC<InputProps> = ({
-    label,
-    name,
-    type = "text",
-    value,
-    error = "",
-    onChange,
-}) => {
+const TextField: FC<InputProps> = (props) => {
+    const { label, name, error, ...other } = props;
     return (
         <div className="input-container">
             <label htmlFor={name} className="input-label">
-                {label}:
+                {label?.concat(":")}
             </label>
             <input
-                type={type}
+                {...other}
                 name={name}
-                id={name}
-                value={value}
-                onChange={onChange}
                 className={`${error ? "input-field-error" : "input-field"}`}
             />
             <span className="input-error-text">{error}</span>
