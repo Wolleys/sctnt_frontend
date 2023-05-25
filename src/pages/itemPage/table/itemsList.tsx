@@ -2,7 +2,6 @@ import { FC } from "react";
 import Table from "../../../components/table";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "../../../components/form/searchBox";
-
 import AddBtn from "../../../components/form/button/addBtn";
 import EditBtn from "../../../components/form/button/editBtn";
 import DeleteBtn from "../../../components/form/button/delBtn";

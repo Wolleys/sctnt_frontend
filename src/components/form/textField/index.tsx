@@ -3,12 +3,14 @@ import "./textField.css";
 
 interface InputProps {
     label?: string;
-    name: string;
+    name?: string;
     type?: string;
     error?: string;
     value: string;
+    disabled?: boolean;
+    readOnly?: boolean;
     placeholder?: string;
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextField: FC<InputProps> = (props) => {
