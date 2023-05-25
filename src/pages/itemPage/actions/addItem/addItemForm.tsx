@@ -8,17 +8,17 @@ import SubmitBtn from "../../../../components/form/button/submitBtn";
 import { useInterfacesContext } from "../../../../hooks/useInterface";
 
 const AddItemForm: FC = () => {
-    const { item } = useInterfacesContext();
+    const { newItem } = useInterfacesContext();
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
 
     const initialValues = {
-        id: item.id || "",
-        name: item.name || "",
-        price: item.price || "",
-        color: item.color || "",
-        location: item.location || "",
-        owner: item.owner || "",
+        id: newItem.id || "",
+        name: newItem.name || "",
+        price: newItem.price || "",
+        color: newItem.color || "",
+        location: newItem.location || "",
+        owner: newItem.owner || "",
     };
 
     const [formValues, { handleChange, handleSubmit }, formErrors] = useForm(

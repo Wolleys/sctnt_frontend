@@ -13,7 +13,7 @@ const ItemRoutes: FC = () => {
             <Route element={<Items />}>
                 <Route path="/" element={<DisplayItems />} />
                 <Route path="add-item" element={<AddItem />} />
-                <Route path="edit-item" element={<EditItem />} />
+                <Route path="edit-item/:itemId" element={<EditItem />} />
                 <Route path="item/:itemId" element={<ItemDetails />} />
             </Route>
             {/* Catch all undefined routes */}

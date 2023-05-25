@@ -2,22 +2,23 @@ import { FC, Dispatch, SetStateAction, createContext, ReactNode, useState } from
 import { ItemInterface } from "../interfaces/itemInterface";
 
 export interface InterfacesContextType {
-    item: ItemInterface;
-    items?: ItemInterface[];
-    setItems: Dispatch<SetStateAction<ItemInterface>>;
+    newItem: ItemInterface;
+    getItems?: ItemInterface[];
+    setGetItems: Dispatch<SetStateAction<ItemInterface[]>>;
 }
 
 export const InterfacesContext = createContext<InterfacesContextType | undefined>(undefined);
 
 interface InterfacesProviderProps {
-    initialItem: ItemInterface;
+    formValues: ItemInterface;
     displayItems?: ItemInterface[];
     children: ReactNode;
 }
 
-export const InterfacesProvider: FC<InterfacesProviderProps> = ({ initialItem, displayItems, children }) => {
-    const [item, setItems] = useState<ItemInterface>(initialItem);
-    const value = { item, setItems, items: displayItems }
+export const InterfacesProvider: FC<InterfacesProviderProps> = ({ formValues, displayItems, children }) => {
+    const [newItem, setNewItem] = useState<ItemInterface>(formValues);
+    const [getItems, setGetItems] = useState<ItemInterface[]>(displayItems || []);
+    const value = { newItem, setNewItem, getItems, setGetItems };
 
     return (
         <InterfacesContext.Provider value={value}>

@@ -20,19 +20,31 @@ const columns = [
 
 const ItemsList: FC = () => {
     const navigate = useNavigate();
-    const { items } = useInterfacesContext();
+    const { getItems, setGetItems } = useInterfacesContext();
 
-    //Links
-    const handleAdd = () => navigate("/items/add-item");
-    const handleEdit = () => navigate("/items/edit-item");
+    interface TableRow {
+        id: string;
+    }
 
-    const itemsData = items?.map((item) => {
+    // CRUD operations
+    const handleAdd = (): void => navigate("/items/add-item");
+    const handleEdit = (row: TableRow): void => {
+        navigate(`/items/edit-item/${row.id}`);
+    };
+    const handleDelete = (row: TableRow): void => {
+        if (getItems) {
+            const updatedItems = getItems.filter((item) => item.id !== row.id);
+            setGetItems(updatedItems);
+        }
+    };
+
+    const itemsData = getItems?.map((item) => {
         return {
             ...item,
             actions: (
                 <span>
-                    <EditBtn onClick={handleEdit}>Edit</EditBtn>
-                    <DeleteBtn>Delete</DeleteBtn>
+                    <EditBtn onClick={() => handleEdit(item)}>Edit</EditBtn>
+                    <DeleteBtn onClick={() => handleDelete(item)}>Delete</DeleteBtn>
                 </span>
             ),
         };

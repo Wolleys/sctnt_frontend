@@ -5,7 +5,7 @@ import { InterfacesProvider } from "../../../../context/InterfacesContext";
 
 const AddItem: FC = () => {
     return (
-        <InterfacesProvider initialItem={initialValues}>
+        <InterfacesProvider formValues={initialValues}>
             <AddItemForm />
         </InterfacesProvider>
     );

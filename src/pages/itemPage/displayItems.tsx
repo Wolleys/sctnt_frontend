@@ -6,7 +6,7 @@ import { InterfacesProvider } from "../../context/InterfacesContext";
 
 const DisplayItems: FC = () => {
     return (
-        <InterfacesProvider initialItem={initialValues} displayItems={itemsData}>
+        <InterfacesProvider formValues={initialValues} displayItems={itemsData}>
             <ItemsList />
         </InterfacesProvider>
     );
