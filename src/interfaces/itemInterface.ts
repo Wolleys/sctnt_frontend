@@ -1,8 +1,8 @@
 export interface ItemInterface {
   id: string;
-  name: string;
+  description: string;
+  part_number: string;
   price: string;
-  color: string;
+  part_status: string;
   location: string;
-  owner: string;
 }

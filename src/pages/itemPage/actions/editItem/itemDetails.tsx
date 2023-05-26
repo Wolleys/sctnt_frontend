@@ -26,11 +26,11 @@ const ItemDetails: FC<ItemDetailsParams> = ({ editRow }) => {
             {filteredData?.map((item) => (
                 <section key={item.id}>
                     <div className="grid-container">
-                        <TextField label="Name" value={item.name} readOnly />
+                        <TextField label="Description" value={item.description} readOnly />
+                        <TextField label="Part number" value={item.part_number} readOnly />
                         <TextField label="Price" value={item.price} readOnly />
-                        <TextField label="Color" value={item.color} readOnly />
-                        <TextField label="Location" readOnly value={item.location} />
-                        <TextField label="Owner" value={item.owner} readOnly />
+                        <TextField label="Part status" readOnly value={item.part_status} />
+                        <TextField label="Location" value={item.location} readOnly />
                     </div>
                     <section>
                         <span style={{ float: "left" }}>

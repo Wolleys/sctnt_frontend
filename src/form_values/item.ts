@@ -1,8 +1,8 @@
 export const initialValues = {
     id: "",
-    name: "",
+    description: "",
+    part_number: "",
     price: "",
-    color: "",
+    part_status: "",
     location: "",
-    owner: "",
 };

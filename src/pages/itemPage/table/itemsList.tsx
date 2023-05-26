@@ -8,12 +8,12 @@ import DeleteBtn from "../../../components/form/button/delBtn";
 import { useInterfacesContext } from "../../../hooks/useInterface";
 
 const columns = [
-    { key: "id", header: "ID" },
-    { key: "name", header: "Name" },
+    // { key: "id", header: "ID" },
+    { key: "description", header: "Description" },
+    { key: "part_number", header: "Part number" },
     { key: "price", header: "Price" },
-    { key: "color", header: "Color" },
+    { key: "part_status", header: "Part status" },
     { key: "location", header: "Location" },
-    { key: "owner", header: "Owner" },
     { key: "actions", header: "Actions" },
 ];
 
