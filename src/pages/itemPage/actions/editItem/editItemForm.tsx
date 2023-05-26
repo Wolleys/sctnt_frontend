@@ -10,11 +10,11 @@ const EditItemForm: FC = () => {
     const { setEditing } = useEditContext();
 
     const initialValues = {
-        name: "",
+        description: "",
+        part_number: "",
         price: "",
-        color: "",
+        part_status: "",
         location: "",
-        owner: "",
     };
 
     const [formValues, { handleChange, handleSubmit }, formErrors] = useForm(
@@ -36,26 +36,32 @@ const EditItemForm: FC = () => {
             <form onSubmit={handleSubmit(EditItemForm)} autoComplete="off">
                 <div className="grid-container">
                     <TextField
-                        label="Name"
-                        name="name"
+                        label="Description"
+                        name="description"
                         onChange={handleChange}
-                        value={formValues.name}
-                        error={formErrors.name}
+                        value={formValues.description}
+                        error={formErrors.description}
+                    />
+                    <TextField
+                        label="Part number"
+                        name="part_number"
+                        onChange={handleChange}
+                        value={formValues.part_number}
+                        error={formErrors.part_number}
                     />
                     <TextField
                         label="Price"
                         name="price"
-                        type="number"
                         onChange={handleChange}
                         value={formValues.price}
                         error={formErrors.price}
                     />
                     <TextField
-                        label="Color"
-                        name="color"
+                        label="Part status"
+                        name="part_status"
                         onChange={handleChange}
-                        value={formValues.color}
-                        error={formErrors.color}
+                        value={formValues.part_status}
+                        error={formErrors.part_status}
                     />
                     <TextField
                         label="Location"
@@ -63,13 +69,6 @@ const EditItemForm: FC = () => {
                         onChange={handleChange}
                         value={formValues.location}
                         error={formErrors.location}
-                    />
-                    <TextField
-                        label="Owner"
-                        name="owner"
-                        onChange={handleChange}
-                        value={formValues.owner}
-                        error={formErrors.owner}
                     />
                 </div>
                 <section>

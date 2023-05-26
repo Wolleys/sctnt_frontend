@@ -1,4 +1,6 @@
 import { FC } from "react";
+import axios from "../../../../api";
+import SupplierSelect from "./supplierSelect";
 import { useNavigate } from "react-router-dom";
 import useForm from "../../../../hooks/useForm";
 import TextField from "../../../../components/form/textField";
@@ -28,11 +30,12 @@ const AddItemForm: FC = () => {
 
     const addItemForm = async () => {
         try {
-            console.log(formValues);
+          await axios.post("/items", formValues);
+          console.log("Item added successfully");
         } catch (error) {
-            console.error("Error submitting form:", error);
+          console.error("Error adding item:", error);
         }
-    };
+      };
 
     return (
         <div className="center">
@@ -74,6 +77,8 @@ const AddItemForm: FC = () => {
                         value={formValues.location}
                         error={formErrors.location}
                     />
+                    <SupplierSelect />
+
                 </div>
                 <section>
                     <span style={{ float: "left" }}>
